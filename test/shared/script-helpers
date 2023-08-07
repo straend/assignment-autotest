@@ -156,7 +156,7 @@ validate_socket_long_string() {
 validate_socket_daemon() {
 	echo "validating aesdsocket daemon task"
 
-	ssh_cmd "ps | grep -v grep| grep /usr/bin/aesdsocket"
+	ssh_cmd "ps -x | grep -v grep| grep /usr/bin/aesdsocket"
 	rc=$?
 	if [ $rc -ne 0 ]; then
 		add_validate_error "aesdsocket does not run as daemon on startup"
