@@ -700,7 +700,7 @@ validate_application_assignment8() {
 
 		validate_aesdchar
 
-       	ssh_cmd "ps | grep -v grep| grep /usr/bin/aesdsocket"
+       	ssh_cmd "ps -x | grep -v grep| grep /usr/bin/aesdsocket"
         if [ $? -ne 0 ]; then
                 add_validate_error "Socket application is not running on boot"
                 ssh_cmd "test -f /usr/bin/aesdsocket"
